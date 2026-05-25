@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chenkan Wang · 王晨侃</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        header {
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 0.3rem;
+            font-weight: 400;
+        }
+        .contact {
+            margin-top: 0.8rem;
+            font-size: 0.88rem;
+            color: #555;
+        }
+        .contact a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .contact a:hover { text-decoration: underline; }
+        .contact span { margin: 0 0.4rem; color: #bbb; }
+        section {
+            padding: 2rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        section:last-child { border-bottom: none; }
+        h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #333;
+        }
+        .edu-item {
+            margin-bottom: 1.5rem;
+        }
+        .edu-item:last-child { margin-bottom: 0; }
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+        .edu-institution {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .edu-date {
+            color: #888;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+        .edu-meta {
+            color: #555;
+            font-size: 0.9rem;
+            margin-top: 0.15rem;
+        }
+        .edu-detail {
+            font-size: 0.9rem;
+            color: #444;
+            margin-top: 0.3rem;
+            padding-left: 0.5rem;
+        }
+        .honor-list {
+            list-style: none;
+            font-size: 0.9rem;
+            color: #444;
+        }
+        .honor-list li {
+            padding: 0.2rem 0;
+            position: relative;
+            padding-left: 1rem;
+        }
+        .honor-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #999;
+        }
+        .project-item {
+            margin-bottom: 1.2rem;
+        }
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+        .project-name {
+            font-weight: 500;
+        }
+        .project-name a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .project-name a:hover { text-decoration: underline; }
+        .project-date {
+            color: #888;
+            font-size: 0.82rem;
+        }
+        .project-desc {
+            font-size: 0.9rem;
+            color: #444;
+            margin-top: 0.2rem;
+        }
+        .project-tags {
+            margin-top: 0.3rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        .tag {
+            font-size: 0.75rem;
+            background: #eef2ff;
+            color: #4338ca;
+            padding: 0.15rem 0.6rem;
+            border-radius: 4px;
+        }
+        .award {
+            background: #f5f5f5;
+            padding: 0.02rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.82rem;
+            color: #666;
+        }
+        .lang-list {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.8;
+        }
+        footer {
+            padding: 2rem 0 1rem;
+            text-align: center;
+            color: #bbb;
+            font-size: 0.8rem;
+        }
+
+        /* Slides mode toggle - kept minimal but clean */
+        @media (max-width: 480px) {
+            body { padding: 1rem; }
+            header { padding: 2rem 0 1.5rem; }
+            h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Chenkan Wang</h1>
+        <div class="subtitle">王晨侃</div>
+        <div class="contact">
+            (+86) 136-8582-2213
+            <span>·</span>
+            <a href="mailto:AlexWang_ck@sjtu.edu.cn">AlexWang_ck@sjtu.edu.cn</a>
+            <span>·</span>
+            <a href="https://github.com/f1ybaozii">github.com/f1ybaozii</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>About</h2>
+        <p style="font-size:0.92rem;color:#444;">
+            First-year M.S. student in Cyberspace Security at the University of Chinese Academy of Sciences,
+            and a member of the National Engineering Research Center for Information Content Security.
+            Research focus: Intelligent Data Plane, Programmable Networks.
+        </p>
+        <ul class="honor-list" style="margin-top:0.8rem;">
+            <li>Outstanding Student Scholarship, Shanghai Jiao Tong University (2021, 2023)</li>
+            <li>Honorable Mention, Mathematical Contest in Modeling (2023)</li>
+        </ul>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+
+        <div class="edu-item">
+            <div class="edu-header">
+                <span class="edu-institution">University of Chinese Academy of Sciences</span>
+                <span class="edu-date">2025.09 – Present</span>
+            </div>
+            <div class="edu-meta">School of Cyberspace Security · Network &amp; Information Security (Recommended)</div>
+            <div class="edu-detail">
+                GPA: 3.84/4.0 · National Engineering Research Center for Information Content Security<br>
+                Research direction: Intelligent Data Plane · Advisor: Prof. Yang Rong
+            </div>
+        </div>
+
+        <div class="edu-item">
+            <div class="edu-header">
+                <span class="edu-institution">Shanghai Jiao Tong University</span>
+                <span class="edu-date">2021.09 – 2025.06</span>
+            </div>
+            <div class="edu-meta">B.E. · GPA: 3.56/4.30</div>
+        </div>
+    </section>
+
+    <section id="publications">
+        <h2>Publications &amp; Projects</h2>
+
+        <div class="project-item">
+            <div class="project-header">
+                <span class="project-name"><a href="https://github.com/f1ybaozii/DLSec-WebUI">DLSec-WebUI</a></span>
+                <span class="project-date">2023.04 – 2024.04</span>
+            </div>
+            <div class="project-desc">
+                A web-based platform for deep learning security analysis and visualization.
+                Developed full-stack with Django backend and interactive frontend.
+                Integrated PyTorch-based models for adversarial attack &amp; defense evaluation.
+            </div>
+            <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">PyTorch</span>
+                <span class="tag">Django</span>
+                <span class="tag">HTML/CSS/JS</span>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-header">
+                <span class="project-name"><a href="https://github.com/f1ybaozii/SJTUhelper">SJTUhelper</a></span>
+                <span class="project-date">2023.09 – 2023.11</span>
+            </div>
+            <div class="project-desc">
+                An integrated campus assistant aggregating services from Bilibili, GitHub, Canvas, 
+                and school portals. Leveraged GPT prompts for intelligent Q&amp;A and workflow automation.
+            </div>
+            <div class="project-tags">
+                <span class="tag">Django</span>
+                <span class="tag">GPT</span>
+                <span class="tag">API</span>
+                <span class="tag">Web</span>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-header">
+                <span class="project-name"><a href="https://github.com/f1ybaozii/NIS3356-SMT">NIS3356-SMT</a></span>
+                <span class="project-date">2023.11 – 2024.01</span>
+            </div>
+            <div class="project-desc">
+                Short message text classification using BERTopic with Word2Vec and UMAP 
+                for dimensionality reduction. Achieved 89.02% accuracy on mixed-large datasets 
+                and 86.28% with HDBSCAN clustering.
+            </div>
+            <div class="project-tags">
+                <span class="tag">BERTopic</span>
+                <span class="tag">Word2Vec</span>
+                <span class="tag">UMAP</span>
+                <span class="tag">Python</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="languages">
+        <h2>Languages</h2>
+        <div class="lang-list">
+            CET-4: 556 &nbsp;·&nbsp; CET-6: 567 &nbsp;·&nbsp; IELTS: 6.5
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Chenkan Wang · Built with care
+    </footer>
+</div>
+</body>
+</html>
