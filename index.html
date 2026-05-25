@@ -1,27 +1,70 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chenkan Wang · 王晨侃</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --subtle: #888;
+            --border: #e0e0e0;
+            --accent: #2563eb;
+            --tag-bg: #eef2ff;
+            --tag-fg: #4338ca;
+            --card-bg: #fff;
+            --award-bg: #f5f5f5;
+        }
+
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background: #fafafa;
-            color: #1a1a1a;
+            background: var(--bg);
+            color: var(--fg);
             line-height: 1.6;
             padding: 2rem 1rem;
         }
+        body.zh { font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif; }
         .container {
             max-width: 720px;
             margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2.5rem 2.8rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,.04);
         }
+
+        /* ── Lang Toggle ── */
+        .lang-toggle {
+            text-align: right;
+            margin-bottom: 0.5rem;
+        }
+        .lang-btn {
+            font-size: 0.82rem;
+            border: 1px solid var(--border);
+            background: transparent;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            color: var(--subtle);
+            transition: .2s;
+        }
+        .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+        .lang-en, .lang-zh { display: none; }
+        .lang-en.active, .lang-zh.active { display: block; }
+
+        /* ── Header ── */
         header {
-            padding: 3rem 0 2rem;
-            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 0.5rem;
         }
         h1 {
             font-size: 2rem;
@@ -29,35 +72,50 @@
             letter-spacing: -0.02em;
         }
         .subtitle {
-            color: #666;
+            color: var(--muted);
             font-size: 0.95rem;
-            margin-top: 0.3rem;
+            margin-top: 0.2rem;
             font-weight: 400;
         }
         .contact {
-            margin-top: 0.8rem;
+            margin-top: 1rem;
             font-size: 0.88rem;
             color: #555;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1.2rem;
         }
         .contact a {
-            color: #2563eb;
+            color: var(--accent);
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
         }
         .contact a:hover { text-decoration: underline; }
-        .contact span { margin: 0 0.4rem; color: #bbb; }
+        .contact svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+        .contact .fill-icon svg { fill: currentColor; stroke: none; }
+
         section {
-            padding: 2rem 0;
-            border-bottom: 1px solid #e0e0e0;
+            padding: 1.8rem 0;
+            border-bottom: 1px solid var(--border);
         }
-        section:last-child { border-bottom: none; }
+        section:last-of-type { border-bottom: none; }
+
         h2 {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #333;
+            letter-spacing: 0.06em;
+            color: var(--fg);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
+        h2 svg { width: 18px; height: 18px; stroke: var(--accent); stroke-width: 1.8; fill: none; }
+
+        /* ── Education ── */
         .edu-item {
             margin-bottom: 1.5rem;
         }
@@ -69,137 +127,122 @@
             flex-wrap: wrap;
             gap: 0.3rem;
         }
-        .edu-institution {
-            font-weight: 600;
-            font-size: 1rem;
-        }
-        .edu-date {
-            color: #888;
-            font-size: 0.85rem;
-            white-space: nowrap;
-        }
-        .edu-meta {
-            color: #555;
-            font-size: 0.9rem;
-            margin-top: 0.15rem;
-        }
-        .edu-detail {
-            font-size: 0.9rem;
-            color: #444;
-            margin-top: 0.3rem;
+        .edu-institution { font-weight: 600; font-size: 1rem; }
+        .edu-date { color: var(--subtle); font-size: 0.85rem; white-space: nowrap; }
+        .edu-meta { color: #555; font-size: 0.9rem; margin-top: 0.15rem; }
+        .edu-detail { font-size: 0.9rem; color: #444; margin-top: 0.3rem; padding-left: 0.5rem; }
+
+        .award-list {
+            margin-top: 0.5rem;
             padding-left: 0.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
         }
-        .honor-list {
-            list-style: none;
-            font-size: 0.9rem;
-            color: #444;
+        .award-badge {
+            font-size: 0.78rem;
+            background: var(--award-bg);
+            color: #666;
+            padding: 0.12rem 0.6rem;
+            border-radius: 4px;
         }
-        .honor-list li {
-            padding: 0.2rem 0;
-            position: relative;
-            padding-left: 1rem;
-        }
-        .honor-list li::before {
-            content: "—";
-            position: absolute;
-            left: 0;
-            color: #999;
-        }
-        .project-item {
-            margin-bottom: 1.2rem;
-        }
+
+        /* ── Projects ── */
+        .project-item { margin-bottom: 1.4rem; }
+        .project-item:last-child { margin-bottom: 0; }
         .project-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             flex-wrap: wrap;
         }
-        .project-name {
-            font-weight: 500;
-        }
+        .project-name { font-weight: 500; }
         .project-name a {
-            color: #2563eb;
+            color: var(--accent);
             text-decoration: none;
         }
         .project-name a:hover { text-decoration: underline; }
-        .project-date {
-            color: #888;
-            font-size: 0.82rem;
-        }
-        .project-desc {
-            font-size: 0.9rem;
-            color: #444;
-            margin-top: 0.2rem;
-        }
-        .project-tags {
-            margin-top: 0.3rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-        }
+        .project-date { color: var(--subtle); font-size: 0.82rem; }
+        .project-desc { font-size: 0.9rem; color: #444; margin-top: 0.2rem; }
+        .project-tags { margin-top: 0.3rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
         .tag {
             font-size: 0.75rem;
-            background: #eef2ff;
-            color: #4338ca;
+            background: var(--tag-bg);
+            color: var(--tag-fg);
             padding: 0.15rem 0.6rem;
             border-radius: 4px;
         }
-        .award {
-            background: #f5f5f5;
-            padding: 0.02rem 0.4rem;
-            border-radius: 3px;
-            font-size: 0.82rem;
-            color: #666;
+
+        /* ── Languages ── */
+        .lang-grid {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
-        .lang-list {
-            font-size: 0.9rem;
-            color: #444;
-            line-height: 1.8;
-        }
+        .lang-item { font-size: 0.9rem; color: #444; }
+
         footer {
-            padding: 2rem 0 1rem;
+            padding: 1.5rem 0 0.5rem;
             text-align: center;
-            color: #bbb;
-            font-size: 0.8rem;
+            color: #ccc;
+            font-size: 0.78rem;
         }
 
-        /* Slides mode toggle - kept minimal but clean */
-        @media (max-width: 480px) {
-            body { padding: 1rem; }
-            header { padding: 2rem 0 1.5rem; }
-            h1 { font-size: 1.6rem; }
+        @media (max-width: 540px) {
+            .container { padding: 1.5rem 1.2rem; border-radius: 0; }
+            h1 { font-size: 1.5rem; }
+            .contact { gap: 0.3rem 1rem; }
         }
     </style>
 </head>
 <body>
 <div class="container">
+
+    <!-- ── Language Toggle ── -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" onclick="switchLang('en')">EN</button>
+        <button class="lang-btn" onclick="switchLang('zh')">中文</button>
+    </div>
+
+    <!-- ══════════ ENGLISH ══════════ -->
+    <div class="lang-en active" id="lang-en">
+
     <header>
         <h1>Chenkan Wang</h1>
         <div class="subtitle">王晨侃</div>
         <div class="contact">
-            (+86) 136-8582-2213
-            <span>·</span>
-            <a href="mailto:AlexWang_ck@sjtu.edu.cn">AlexWang_ck@sjtu.edu.cn</a>
-            <span>·</span>
-            <a href="https://github.com/f1ybaozii">github.com/f1ybaozii</a>
+            <a href="tel:+8613685822213">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                (+86) 136-8582-2213
+            </a>
+            <a href="mailto:AlexWang_ck@sjtu.edu.cn">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                AlexWang_ck@sjtu.edu.cn
+            </a>
+            <a href="https://github.com/f1ybaozii">
+                <svg class="fill-icon" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                f1ybaozii
+            </a>
         </div>
     </header>
 
     <section id="about">
-        <h2>About</h2>
+        <h2>
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            About
+        </h2>
         <p style="font-size:0.92rem;color:#444;">
-            First-year M.S. student in Cyberspace Security at the University of Chinese Academy of Sciences,
-            and a member of the National Engineering Research Center for Information Content Security.
-            Research focus: Intelligent Data Plane, Programmable Networks.
+            First-year M.S. student in Cyberspace Security at the University of Chinese Academy of Sciences.
+            Member of the National Engineering Research Center for Information Content Security.
+            Research focus: Intelligent Data Plane &amp; Programmable Networks.
         </p>
-        <ul class="honor-list" style="margin-top:0.8rem;">
-            <li>Outstanding Student Scholarship, Shanghai Jiao Tong University (2021, 2023)</li>
-            <li>Honorable Mention, Mathematical Contest in Modeling (2023)</li>
-        </ul>
     </section>
 
     <section id="education">
-        <h2>Education</h2>
+        <h2>
+            <svg viewBox="0 0 24 24"><path d="M22 10l-10-5L2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            Education
+        </h2>
 
         <div class="edu-item">
             <div class="edu-header">
@@ -209,7 +252,10 @@
             <div class="edu-meta">School of Cyberspace Security · Network &amp; Information Security (Recommended)</div>
             <div class="edu-detail">
                 GPA: 3.84/4.0 · National Engineering Research Center for Information Content Security<br>
-                Research direction: Intelligent Data Plane · Advisor: Prof. Yang Rong
+                Advisor: Prof. Yang Rong · Research: Intelligent Data Plane
+            </div>
+            <div class="award-list">
+                <span class="award-badge">🎓 Outstanding Student Scholarship</span>
             </div>
         </div>
 
@@ -219,11 +265,18 @@
                 <span class="edu-date">2021.09 – 2025.06</span>
             </div>
             <div class="edu-meta">B.E. · GPA: 3.56/4.30</div>
+            <div class="award-list">
+                <span class="award-badge">🏅 Merit-based Scholarship (2021, 2023)</span>
+                <span class="award-badge">📐 MCM/ICM Honorable Mention (2023)</span>
+            </div>
         </div>
     </section>
 
     <section id="publications">
-        <h2>Publications &amp; Projects</h2>
+        <h2>
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            Projects
+        </h2>
 
         <div class="project-item">
             <div class="project-header">
@@ -231,15 +284,13 @@
                 <span class="project-date">2023.04 – 2024.04</span>
             </div>
             <div class="project-desc">
-                A web-based platform for deep learning security analysis and visualization.
-                Developed full-stack with Django backend and interactive frontend.
-                Integrated PyTorch-based models for adversarial attack &amp; defense evaluation.
+                A full-stack web platform for deep learning security analysis and visualization.
+                Built with Django backend and interactive frontend; integrated PyTorch models
+                for adversarial attack &amp; defense evaluation.
             </div>
             <div class="project-tags">
-                <span class="tag">Python</span>
-                <span class="tag">PyTorch</span>
-                <span class="tag">Django</span>
-                <span class="tag">HTML/CSS/JS</span>
+                <span class="tag">Python</span><span class="tag">PyTorch</span>
+                <span class="tag">Django</span><span class="tag">HTML/CSS/JS</span>
             </div>
         </div>
 
@@ -249,14 +300,11 @@
                 <span class="project-date">2023.09 – 2023.11</span>
             </div>
             <div class="project-desc">
-                An integrated campus assistant aggregating services from Bilibili, GitHub, Canvas, 
-                and school portals. Leveraged GPT prompts for intelligent Q&amp;A and workflow automation.
+                An integrated campus assistant aggregating services from Bilibili, GitHub, Canvas
+                and SJTU portals. Leveraged GPT prompts for intelligent Q&amp;A and workflow automation.
             </div>
             <div class="project-tags">
-                <span class="tag">Django</span>
-                <span class="tag">GPT</span>
-                <span class="tag">API</span>
-                <span class="tag">Web</span>
+                <span class="tag">Django</span><span class="tag">GPT API</span><span class="tag">Web Scraping</span>
             </div>
         </div>
 
@@ -266,29 +314,176 @@
                 <span class="project-date">2023.11 – 2024.01</span>
             </div>
             <div class="project-desc">
-                Short message text classification using BERTopic with Word2Vec and UMAP 
-                for dimensionality reduction. Achieved 89.02% accuracy on mixed-large datasets 
+                Short message text classification using BERTopic with Word2Vec &amp; UMAP for
+                dimensionality reduction. Achieved 89.02% accuracy on mixed-large datasets
                 and 86.28% with HDBSCAN clustering.
             </div>
             <div class="project-tags">
-                <span class="tag">BERTopic</span>
-                <span class="tag">Word2Vec</span>
-                <span class="tag">UMAP</span>
-                <span class="tag">Python</span>
+                <span class="tag">BERTopic</span><span class="tag">Word2Vec</span>
+                <span class="tag">UMAP</span><span class="tag">Python</span>
             </div>
         </div>
     </section>
 
     <section id="languages">
-        <h2>Languages</h2>
-        <div class="lang-list">
-            CET-4: 556 &nbsp;·&nbsp; CET-6: 567 &nbsp;·&nbsp; IELTS: 6.5
+        <h2>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Languages
+        </h2>
+        <div class="lang-grid">
+            <div class="lang-item"><strong>Chinese</strong> — Native</div>
+            <div class="lang-item"><strong>English</strong> — CET-4: 556 · CET-6: 567 · IELTS: 6.5</div>
         </div>
     </section>
 
-    <footer>
-        &copy; 2026 Chenkan Wang · Built with care
-    </footer>
+    <footer>© 2026 Chenkan Wang</footer>
+    </div>
+    <!-- ═══ END ENGLISH ═══ -->
+
+    <!-- ══════════ CHINESE ══════════ -->
+    <div class="lang-zh" id="lang-zh">
+
+    <header>
+        <h1>王晨侃</h1>
+        <div class="subtitle">Chenkan Wang</div>
+        <div class="contact">
+            <a href="tel:+8613685822213">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                (+86) 136-8582-2213
+            </a>
+            <a href="mailto:AlexWang_ck@sjtu.edu.cn">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                AlexWang_ck@sjtu.edu.cn
+            </a>
+            <a href="https://github.com/f1ybaozii">
+                <svg class="fill-icon" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                f1ybaozii
+            </a>
+        </div>
+    </header>
+
+    <section id="about-zh">
+        <h2>
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            个人简介
+        </h2>
+        <p style="font-size:0.92rem;color:#444;">
+            中国科学院大学网络空间安全学院硕士研究生一年级（推免），
+            信息内容安全国家工程研究中心成员。
+            研究方向：智能数据平面、可编程网络。
+        </p>
+    </section>
+
+    <section id="education-zh">
+        <h2>
+            <svg viewBox="0 0 24 24"><path d="M22 10l-10-5L2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            教育经历
+        </h2>
+
+        <div class="edu-item">
+            <div class="edu-header">
+                <span class="edu-institution">中国科学院大学</span>
+                <span class="edu-date">2025.09 – 至今</span>
+            </div>
+            <div class="edu-meta">网络空间安全学院 · 网络与信息安全（推免） · 硕士研究生一年级</div>
+            <div class="edu-detail">
+                GPA: 3.84/4.0 · 信息内容安全国家工程研究中心<br>
+                研究方向：智能数据平面 · 导师：杨嵘
+            </div>
+            <div class="award-list">
+                <span class="award-badge">🎓 优秀学生奖学金</span>
+            </div>
+        </div>
+
+        <div class="edu-item">
+            <div class="edu-header">
+                <span class="edu-institution">上海交通大学</span>
+                <span class="edu-date">2021.09 – 2025.06</span>
+            </div>
+            <div class="edu-meta">本科 · GPA: 3.56/4.30</div>
+            <div class="award-list">
+                <span class="award-badge">🏅 校级奖学金（2021、2023）</span>
+                <span class="award-badge">📐 美国大学生数学建模竞赛 H奖（2023）</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects-zh">
+        <h2>
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            论文与项目
+        </h2>
+
+        <div class="project-item">
+            <div class="project-header">
+                <span class="project-name"><a href="https://github.com/f1ybaozii/DLSec-WebUI">DLSec-WebUI</a></span>
+                <span class="project-date">2023.04 – 2024.04</span>
+            </div>
+            <div class="project-desc">
+                深度学习安全分析与可视化全栈平台。Django 后端 + 交互式前端，
+                集成 PyTorch 模型实现对抗攻防评估。
+            </div>
+            <div class="project-tags">
+                <span class="tag">Python</span><span class="tag">PyTorch</span>
+                <span class="tag">Django</span><span class="tag">HTML/CSS/JS</span>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-header">
+                <span class="project-name"><a href="https://github.com/f1ybaozii/SJTUhelper">SJTUhelper</a></span>
+                <span class="project-date">2023.09 – 2023.11</span>
+            </div>
+            <div class="project-desc">
+                集成门户助手，聚合 Bilibili、GitHub、Canvas 及校园服务。
+                利用 GPT Prompt 实现智能问答与流程自动化。
+            </div>
+            <div class="project-tags">
+                <span class="tag">Django</span><span class="tag">GPT API</span><span class="tag">Web Scraping</span>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-header">
+                <span class="project-name"><a href="https://github.com/f1ybaozii/NIS3356-SMT">NIS3356-SMT</a></span>
+                <span class="project-date">2023.11 – 2024.01</span>
+            </div>
+            <div class="project-desc">
+                短信文本分类项目。基于 BERTopic 框架，使用 Word2Vec 与 UMAP 
+                降维，Mixed-large 数据集达 89.02% 准确率，HDBSCAN 聚类达 86.28%。
+            </div>
+            <div class="project-tags">
+                <span class="tag">BERTopic</span><span class="tag">Word2Vec</span>
+                <span class="tag">UMAP</span><span class="tag">Python</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="languages-zh">
+        <h2>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            语言
+        </h2>
+        <div class="lang-grid">
+            <div class="lang-item"><strong>中文</strong> — 母语</div>
+            <div class="lang-item"><strong>英语</strong> — CET-4: 556 · CET-6: 567 · IELTS: 6.5</div>
+        </div>
+    </section>
+
+    <footer>© 2026 王晨侃</footer>
+    </div>
+    <!-- ═══ END CHINESE ═══ -->
+
 </div>
+
+<script>
+function switchLang(lang) {
+    document.querySelectorAll('.lang-en, .lang-zh').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    if (lang === 'zh') document.querySelector('.lang-btn:nth-child(2)').classList.add('active');
+    else document.querySelector('.lang-btn:nth-child(1)').classList.add('active');
+}
+</script>
 </body>
 </html>
