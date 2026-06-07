@@ -209,6 +209,39 @@
             border-radius: 4px;
         }
 
+        /* ── Navigation ── */
+        nav.nav-bar {
+            display: flex;
+            gap: 0;
+            justify-content: center;
+            padding: 0.6rem 0;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--card-bg);
+            flex-wrap: wrap;
+        }
+        nav.nav-bar a {
+            font-size: 0.82rem;
+            color: var(--subtle);
+            text-decoration: none;
+            padding: 0.3rem 1rem;
+            margin: 0 0.2rem;
+            border-radius: 6px;
+            transition: .2s;
+            white-space: nowrap;
+        }
+        nav.nav-bar a:hover {
+            color: var(--fg);
+            background: var(--award-bg);
+        }
+        nav.nav-bar a.active {
+            color: var(--accent);
+            background: var(--tag-bg);
+        }
+
         .photo-frame {
             width: 120px;
             height: 120px;
@@ -317,6 +350,14 @@
             <img src="images/photo.jpg" alt="Chenkan Wang">
         </div>
     </header>
+
+    <nav class="nav-bar">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#papers">Publications</a>
+        <a href="#publications">Projects</a>
+        <a href="#languages">Languages</a>
+    </nav>
 
     <section id="about">
         <h2>
@@ -628,6 +669,14 @@
         </div>
     </header>
 
+    <nav class="nav-bar">
+        <a href="#about-zh">个人简介</a>
+        <a href="#education-zh">教育经历</a>
+        <a href="#papers-zh">论文经历</a>
+        <a href="#projects-zh">项目</a>
+        <a href="#languages-zh">语言</a>
+    </nav>
+
     <section id="about-zh">
         <h2>
             <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -908,9 +957,38 @@ function switchLang(lang) {
     document.querySelectorAll('.lang-en, .lang-zh').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
     document.getElementById('lang-' + lang).classList.add('active');
-    if (lang === 'zh') document.querySelector('.lang-btn:nth-child(2)').classList.add('active');
-    else document.querySelector('.lang-btn:nth-child(1)').classList.add('active');
+    document.querySelector('.lang-btn' + (lang === 'zh' ? ':nth-child(2)' : ':nth-child(1)')).classList.add('active');
+    // re-highlight nav after language switch
+    updateNav();
 }
+
+function updateNav() {
+    var navLinks = document.querySelectorAll('nav.nav-bar a');
+    var activeLang = document.querySelector('.lang-en.active') ? 'en' : 'zh';
+    var offset = 80;
+    var currentId = '';
+    var sections = document.querySelectorAll('.lang-' + activeLang + '.active section[id]');
+    sections.forEach(function(s) {
+        var top = s.getBoundingClientRect().top;
+        if (top < offset) currentId = s.id;
+    });
+    navLinks.forEach(function(a) {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + currentId);
+    });
+}
+
+// Smooth scroll for nav clicks (prevents default anchor jump)
+document.querySelectorAll('nav.nav-bar a').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+
+// Scroll spy
+window.addEventListener('scroll', updateNav);
+window.addEventListener('load', updateNav);
 </script>
 </body>
 </html>
