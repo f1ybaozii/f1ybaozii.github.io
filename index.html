@@ -209,6 +209,39 @@
             border-radius: 4px;
         }
 
+        .photo-frame {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--award-bg);
+            border: 2px dashed var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .photo-frame .placeholder {
+            color: var(--subtle);
+            font-size: 0.7rem;
+            text-align: center;
+            line-height: 1.3;
+            padding: 0.5rem;
+        }
+        .header-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+        .header-text { flex: 1; }
+        .paper-venue {
+            color: var(--muted);
+            font-size: 0.88rem;
+            margin-top: 0.2rem;
+        }
+        .paper-venue em { color: var(--accent); font-style: normal; }
+
         /* ── Collapsible work details ── */
         details.work-details {
             margin-top: 0.4rem;
@@ -262,6 +295,8 @@
     <div class="lang-en active" id="lang-en">
 
     <header>
+        <div class="header-row">
+        <div class="header-text">
         <h1>Chenkan Wang</h1>
         <div class="subtitle">王晨侃</div>
         <div class="contact">
@@ -277,6 +312,10 @@
                 <svg class="fill-icon" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
                 f1ybaozii
             </a>
+        </div>
+        </div>
+        <div class="photo-frame">
+            <div class="placeholder">📷<br>Photo</div>
         </div>
     </header>
 
@@ -321,6 +360,65 @@
                 <span class="award-badge">📈 Academic Progress Scholarship (2023)</span>
                 <span class="award-badge">⭐ Outstanding League Member (2021, 2023, 2024)</span>
                 <span class="award-badge">📐 MCM/ICM Honorable Mention (2023)</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="papers">
+        <h2>
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            Publications
+        </h2>
+
+        <!-- P4casting -->
+        <div class="project-item">
+            <div class="project-header">
+                <span class="project-name">P4casting: Data-Control Plane Synergistic Real-time Short-term Network Traffic Prediction</span>
+                <span class="project-date">2026.03 – 2026.05</span>
+            </div>
+            <div class="paper-venue"><em>IEEE SMC (CCF-C, Under Review)</em> · Student First Author</div>
+            <details class="work-details">
+                <summary>▼ Details</summary>
+                <div class="work-body">
+                    <p><strong>Background &amp; Motivation:</strong> Existing approaches for encrypted network traffic short-term prediction suffer from low accuracy and high latency. Proposes P4casting, an end-to-end online traffic prediction system with data-control plane synergy.</p>
+                    <p style="margin-top:0.3rem;"><strong>Design:</strong> On the data plane, implements a P4 pipeline including packet parsing, feature computation, line-rate extraction of flow-level stateful features (Count-Min Sketch, bucket aggregation) and packet-level stateless features. On the control plane, deploys a Transformer-based online prediction model with closed-loop feature reporting and model inference via P4Runtime. Designs online register read/write logic tailored to data plane hardware constraints.</p>
+                    <p style="margin-top:0.3rem;"><strong>Results:</strong> Prototype deployed on Intel Tofino switches (SONiC) and Linux servers. Evaluated on MAWI real-world traces — outperforms EWMA, LSTM, and two Transformer variants with end-to-end average latency of 3.15ms. Low hardware overhead (SRAM 18.72%, TCAM 2.08%).</p>
+                    <p style="margin-top:0.6rem;"><strong>My Contributions:</strong></p>
+                    <ul style="margin-left:1rem;">
+                        <li>Independently designed the approach and experiments. Wrote server/control-plane Python code and 1500 lines of data-plane P4 code; conducted traffic prediction experiments on MAWI 2025 traces.</li>
+                        <li>Authored the full manuscript (second author / corresponding author) submitted to IEEE SMC. A patent is in preparation.</li>
+                    </ul>
+                </div>
+            </details>
+            <div class="project-tags">
+                <span class="tag">P4</span><span class="tag">Tofino</span>
+                <span class="tag">Transformer</span><span class="tag">Traffic Prediction</span>
+            </div>
+        </div>
+
+        <!-- AURORA -->
+        <div class="project-item">
+            <div class="project-header">
+                <span class="project-name">AURORA: An Adaptive Load Balancing Mechanism with Line-rate Traffic Prediction in Data Plane</span>
+                <span class="project-date">2025.06 – 2025.07</span>
+            </div>
+            <div class="paper-venue"><em>IEEE ISCC (CCF-C, Accepted)</em> · Third Author</div>
+            <details class="work-details">
+                <summary>▼ Details</summary>
+                <div class="work-body">
+                    <p><strong>Background &amp; Motivation:</strong> Addresses load balancing lag and server overload under short-term burst traffic in data centers. Proposes AURORA, a prediction-driven load balancing mechanism on P4 programmable data plane that achieves line-rate adaptive scheduling without control plane intervention.</p>
+                    <p style="margin-top:0.3rem;"><strong>Design:</strong> Implements integer-approximated Holt double-exponential smoothing entirely in the data plane to predict next-window connection counts. Designs traffic scaling coefficients for dynamic server weight adjustment with probabilistic interval mapping for fair distribution. Embeds server IDs in TCP timestamps to ensure connection consistency in a stateless data plane, avoiding TCAM/SRAM flow table overflow and supporting massive concurrent connections.</p>
+                    <p style="margin-top:0.3rem;"><strong>Results:</strong> Prototype deployed on Intel Tofino switches with single-leaf topology. Validated with Poisson-arrival and Pareto-distributed traffic (10×/20× burst windows). Results: CPU utilization imbalance reduced by 84.7%, flow completion time reduced by 15.1%, TCP abnormal termination rate only 1.6%. Low hardware overhead (SRAM 15.6%, TCAM 25%).</p>
+                    <p style="margin-top:0.6rem;"><strong>My Contributions:</strong></p>
+                    <ul style="margin-left:1rem;">
+                        <li>Contributed to the Holt double-exponential traffic prediction model and server weight design.</li>
+                        <li>Authored the main body of the paper as student second author, including background, motivation, related work, system overview, and detailed design; organized related work on load balancing.</li>
+                    </ul>
+                </div>
+            </details>
+            <div class="project-tags">
+                <span class="tag">P4</span><span class="tag">Tofino</span>
+                <span class="tag">Load Balancing</span><span class="tag">Traffic Prediction</span>
             </div>
         </div>
     </section>
@@ -505,6 +603,8 @@
     <div class="lang-zh" id="lang-zh">
 
     <header>
+        <div class="header-row">
+        <div class="header-text">
         <h1>王晨侃</h1>
         <div class="subtitle">Chenkan Wang</div>
         <div class="contact">
@@ -520,6 +620,10 @@
                 <svg class="fill-icon" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
                 f1ybaozii
             </a>
+        </div>
+        </div>
+        <div class="photo-frame">
+            <div class="placeholder">📷<br>照片</div>
         </div>
     </header>
 
@@ -564,6 +668,64 @@
                 <span class="award-badge">📈 学业进步奖学金（2023）</span>
                 <span class="award-badge">⭐ 优秀共青团员（2021、2023、2024）</span>
                 <span class="award-badge">📐 美国大学生数学建模竞赛 H奖（2023）</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="papers-zh">
+        <h2>
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            论文经历
+        </h2>
+
+        <!-- P4casting -->
+        <div class="project-item">
+            <div class="project-header">
+                <span class="project-name">P4casting：数据-控制平面协同的实时短期网络流量预测系统</span>
+                <span class="project-date">2026.03 – 2026.05</span>
+            </div>
+            <div class="paper-venue"><em>IEEE SMC (CCF-C, 在投)</em> · 学生一作</div>
+            <details class="work-details">
+                <summary>▼ 项目内容</summary>
+                <div class="work-body">
+                    <p><strong>背景与动机：</strong>针对加密网络流量短时预测精度低、延迟高的问题，提出一种数据-控制平面协同的端到端在线流量预测系统P4casting。</p>
+                    <p style="margin-top:0.3rem;"><strong>主要设计：</strong>在数据平面设计并实现P4流水线，包括包解析、特征计算、利用Count-Min Sketch和分桶聚合实现流级有状态与包级无状态特征的线速提取。在控制平面部署基于Transformer的在线预测模型，通过P4Runtime实现特征上报与模型推理的协同闭环。围绕数据平面硬件限制设计寄存器的在线读取与更新逻辑。</p>
+                    <p style="margin-top:0.3rem;"><strong>实验结果：</strong>在Intel Tofino交换机的SONIC系统与Linux服务器上完成系统原型部署，在MAWI真实数据集上验证，预测精度优于EWMA、LSTM及两种Transformer变体，端到端平均延迟仅3.15ms。硬件资源占用低（SRAM 18.72%，TCAM 2.08%）。</p>
+                    <p style="margin-top:0.6rem;"><strong>工作内容：</strong></p>
+                    <ul style="margin-left:1rem;">
+                        <li>独立完成方案与实验设计工作。编写服务器与控制平面Python代码，数据平面P4代码共计1500行，在MAWI 2025年真实流量数据集上完成流量预测实验。</li>
+                        <li>撰写完整论文，论文IEEE SMC会议在投（二作/通讯作者），预计撰写专利一篇。</li>
+                    </ul>
+                </div>
+            </details>
+            <div class="project-tags">
+                <span class="tag">P4</span><span class="tag">Tofino</span>
+                <span class="tag">Transformer</span><span class="tag">流量预测</span>
+            </div>
+        </div>
+
+        <!-- AURORA -->
+        <div class="project-item">
+            <div class="project-header">
+                <span class="project-name">AURORA：一种数据平面线速流量预测的自适应负载均衡机制</span>
+                <span class="project-date">2025.06 – 2025.07</span>
+            </div>
+            <div class="paper-venue"><em>IEEE ISCC (CCF-C, 录用)</em> · 三作</div>
+            <details class="work-details">
+                <summary>▼ 项目内容</summary>
+                <div class="work-body">
+                    <p><strong>背景与动机：</strong>针对数据中心短时突发流量下负载均衡响应滞后、服务器过载的问题，提出基于P4可编程数据平面的预测驱动负载均衡机制AURORA，无需控制面干预即可实现线速自适应调度。</p>
+                    <p style="margin-top:0.3rem;"><strong>主要设计：</strong>在数据平面内整数近似实现霍尔特双参数时序预测模型，实时预测下一时间窗口的连接数，并设计流量缩放系数动态调整服务器权重，结合概率区间映射完成公平分发。通过TCP时间戳字段嵌入服务器标识，在无状态数据平面中保证连接一致性，避免TCAM/SRAM流表溢出，支持大规模并发连接。</p>
+                    <p style="margin-top:0.3rem;"><strong>实验结果：</strong>在Intel Tofino可编程交换机及单层树拓扑上完成原型部署，使用泊松到达和帕累托分布流量（10倍/20倍突发窗口）进行验证。结果表明：CPU利用率不平衡度降低84.7%，流完成时间降低15.1%，TCP异常中断率仅1.6%，硬件资源开销低（SRAM 15.6%、TCAM 25%）。</p>
+                    <p style="margin-top:0.6rem;"><strong>工作内容：</strong></p>
+                    <ul style="margin-left:1rem;">
+                        <li>参与霍尔特双参数法相关的流量预测模型和服务器权重的设计，作为学生二作撰写论文主体内容，包括论文背景、动机与相关工作，设计总述和详细设计，对负载均衡的相关工作进行整理。</li>
+                    </ul>
+                </div>
+            </details>
+            <div class="project-tags">
+                <span class="tag">P4</span><span class="tag">Tofino</span>
+                <span class="tag">负载均衡</span><span class="tag">流量预测</span>
             </div>
         </div>
     </section>
