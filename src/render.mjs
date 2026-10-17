@@ -20,6 +20,7 @@ const paths = {
 };
 const icon = (name) => `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name]}</svg>`;
 const link = (url, content, className = "") => `<a class="${className}" href="${escape(url)}" target="_blank" rel="noopener noreferrer">${content}</a>`;
+const repositoryLink = (url) => link(url, `${icon("github")} ${escape(url.replace("https://", ""))}`, "repository-link");
 const tags = (items) => items.length ? `<ul class="topic-tags">${items.map((item) => `<li>${escape(item)}</li>`).join("")}</ul>` : "";
 const details = (label, content) => content ? `<details class="entry-details"><summary>${icon("chevron")}${escape(label)}</summary><div class="details-body">${content}</div></details>` : "";
 const section = (id, title, emoji, content, first = false) => `<section class="homepage-section" id="${id}" aria-labelledby="${id}-title"><${first ? "h1" : "h2"} id="${id}-title"><span aria-hidden="true">${emoji}</span> ${escape(title)}</${first ? "h1" : "h2"}>${content}</section>`;
@@ -28,7 +29,7 @@ const translations = {
     home: "Homepage", about: "About Me", education: "Educations", honors: "Honors and Awards",
     publications: "Publications", projects: "Open-source Projects", skills: "Skills", languages: "Languages",
     publicationGroups: { accepted: "Accepted", "under-review": "Under Review" },
-    details: "Research details", projectDetails: "Project details", print: "Print", code: "Code",
+    details: "Research details", projectDetails: "Project details", print: "Print",
     viewFigure: "Click to enlarge", closeFigure: "Close figure", figureDialog: "Paper figure",
     navigation: "Main navigation", menu: "Toggle navigation", language: "Language",
     email: "Email", skip: "Skip to content", top: "Back to top", source: "Source",
@@ -37,7 +38,7 @@ const translations = {
     home: "个人主页", about: "个人简介", education: "教育经历", honors: "获奖荣誉",
     publications: "论文经历", projects: "开源项目", skills: "技术技能", languages: "语言能力",
     publicationGroups: { accepted: "Accepted · 已录取", "under-review": "Under Review · 在投" },
-    details: "研究详情", projectDetails: "项目详情", print: "打印", code: "代码",
+    details: "研究详情", projectDetails: "项目详情", print: "打印",
     viewFigure: "点击放大配图", closeFigure: "关闭配图", figureDialog: "论文配图",
     navigation: "主要导航", menu: "展开或收起导航", language: "语言",
     email: "邮箱", skip: "跳转到正文", top: "返回顶部", source: "源码",
@@ -57,7 +58,7 @@ function publication(item, ui) {
     <div class="paper-box-text">
       <h4 class="paper-title">${item.url ? link(item.url, escape(item.title)) : escape(item.title)}</h4>
       <p class="paper-venue">${escape(item.venue)}</p>
-      ${item.codeUrl ? `<p class="paper-links">${link(item.codeUrl, `${icon("github")} ${escape(ui.code)}`, "repository-link")}</p>` : ""}
+      ${item.codeUrl ? `<p class="paper-links">${repositoryLink(item.codeUrl)}</p>` : ""}
       ${item.description ? `<p>${escape(item.description)}</p>` : ""}
       ${tags(item.tags)}
       ${details(ui.details, item.detailsHtml)}
@@ -80,7 +81,7 @@ function projects(items, ui) {
     <h3>${link(item.url, `${escape(item.title)} ${icon("arrow")}`)}</h3>
     <p>${escape(item.description)}</p>
     ${tags(item.tags)}
-    ${details(ui.projectDetails, `${item.detailsHtml}<p>${link(item.url, `${icon("github")} ${escape(item.url.replace("https://", ""))}`, "repository-link")}</p>`)}
+    ${details(ui.projectDetails, `${item.detailsHtml}<p>${repositoryLink(item.url)}</p>`)}
   </article>`).join("");
 }
 export async function renderPage(resume, lang) {
