@@ -58,7 +58,7 @@ function publication(item, ui) {
     <div class="paper-box-text">
       <h4 class="paper-title">${item.url ? link(item.url, escape(item.title)) : escape(item.title)}</h4>
       <p class="paper-venue">${escape(item.venue)}</p>
-      ${item.codeUrl ? `<p class="paper-links">${repositoryLink(item.codeUrl)}</p>` : ""}
+      ${item.codeUrl ? `<p class="repository-links">${repositoryLink(item.codeUrl)}</p>` : ""}
       ${item.description ? `<p>${escape(item.description)}</p>` : ""}
       ${tags(item.tags)}
       ${details(ui.details, item.detailsHtml)}
@@ -79,9 +79,10 @@ function publications(items, ui) {
 function projects(items, ui) {
   return items.map((item) => `<article class="project-entry">
     <h3>${link(item.url, `${escape(item.title)} ${icon("arrow")}`)}</h3>
+    <p class="repository-links">${repositoryLink(item.url)}</p>
     <p>${escape(item.description)}</p>
     ${tags(item.tags)}
-    ${details(ui.projectDetails, `${item.detailsHtml}<p>${repositoryLink(item.url)}</p>`)}
+    ${details(ui.projectDetails, item.detailsHtml)}
   </article>`).join("");
 }
 export async function renderPage(resume, lang) {

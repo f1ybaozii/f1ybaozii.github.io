@@ -27,7 +27,7 @@ npm run preview
 - 论文的 `status` 使用 `accepted` 或 `under-review`，页面自动分成 Accepted 和 Under Review 两个子模块，同类条目沿用资料文件中的顺序。
 - 英文版使用论文原文的正式英文标题，中文版使用对应中文标题；Accepted 当前顺序为 P4casting、AURORA、AdaTable。
 - 可选的 `image` 包含 `src`、`alt`、`width` 和 `height`，用于展示论文原图缩略图，点击可在页面内放大，支持关闭按钮、Esc 和点击遮罩关闭。图片存放在 `assets/papers/`。
-- 项目中的 `url` 指向项目仓库；`detailsHtml` 保留完整工作内容。
+- 项目中的 `url` 指向项目仓库，仓库链接直接显示在项目标题下方；`detailsHtml` 保留完整工作内容。
 
 修改资料后运行 `npm run build`，将资料文件、生成的 HTML 和 CSS 一起提交。新增论文时同步维护对应的中英文信息。
 
