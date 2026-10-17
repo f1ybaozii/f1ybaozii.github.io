@@ -23,6 +23,7 @@ npm run preview
 - 顶层字段：邮箱、GitHub、站点地址、照片和技能列表。
 - `locales.en` 与 `locales.zh`：姓名、学校、介绍、教育、荣誉、论文、项目与语言成绩。可选的 `researchInterests` 数组用于在侧栏展示研究方向。
 - 论文中的 `title`、`venue`、`date`、`description` 和 `detailsHtml` 分别控制标题、发表状态与作者角色、日期、简介及详情。可选 `url` 字段用于论文链接。
+- 可选的 `codeUrl` 字段用于在论文条目中展示独立的“代码 / Code”仓库链接。
 - 论文的 `status` 使用 `accepted` 或 `under-review`，页面自动分成 Accepted 和 Under Review 两个子模块，同类条目沿用资料文件中的顺序。
 - 英文版使用论文原文的正式英文标题，中文版使用对应中文标题；Accepted 当前顺序为 P4casting、AURORA、AdaTable。
 - 可选的 `image` 包含 `src`、`alt`、`width` 和 `height`，用于展示论文原图缩略图，点击可在页面内放大，支持关闭按钮、Esc 和点击遮罩关闭。图片存放在 `assets/papers/`。

@@ -35,7 +35,7 @@
           "date": "2026.03 – 2026.05",
           "venue": "IEEE HPCC 2026 (CCF-C, Accepted) · Second Author & Corresponding Author",
           "description": "A dual-timescale online traffic prediction system combining hierarchical heavy/light-flow management and multidimensional feature collection in the data plane with cross-frequency and cross-variable attention in a control-plane deep learning model.",
-          "detailsHtml": "<p><strong>Background &amp; Motivation:</strong> Highly bursty, non-stationary encrypted network traffic makes accurate short-term prediction difficult and introduces latency challenges. P4casting addresses this problem with a dual-timescale online prediction system built through data-control plane synergy.</p> <p><strong>Design:</strong> The data plane combines Bloom filters, Count-Min Sketch, and exact flow tables for hierarchical heavy/light-flow management. It collects features across stateful/stateless and high-frequency/low-frequency dimensions. The control plane uses a dual-timescale deep learning model integrating cross-frequency attention and cross-variable attention for accurate online traffic prediction.</p> <p><strong>Results:</strong> The P4casting prototype was deployed on Intel Tofino 1 and evaluated on traffic prediction and burst detection tasks under multiple window configurations, outperforming several state-of-the-art time-series forecasting methods. Steady-state end-to-end latency was approximately 329.702 ms, demonstrating prediction accuracy and the feasibility of online deployment.</p> <p><strong>Code:</strong> <a href=\"https://github.com/f1ybaozii/p4casting\" target=\"_blank\" rel=\"noopener noreferrer\">github.com/f1ybaozii/p4casting</a></p>",
+          "detailsHtml": "<p><strong>Background &amp; Motivation:</strong> Highly bursty, non-stationary encrypted network traffic makes accurate short-term prediction difficult and introduces latency challenges. P4casting addresses this problem with a dual-timescale online prediction system built through data-control plane synergy.</p> <p><strong>Design:</strong> The data plane combines Bloom filters, Count-Min Sketch, and exact flow tables for hierarchical heavy/light-flow management. It collects features across stateful/stateless and high-frequency/low-frequency dimensions. The control plane uses a dual-timescale deep learning model integrating cross-frequency attention and cross-variable attention for accurate online traffic prediction.</p> <p><strong>Results:</strong> The P4casting prototype was deployed on Intel Tofino 1 and evaluated on traffic prediction and burst detection tasks under multiple window configurations, outperforming several state-of-the-art time-series forecasting methods. Steady-state end-to-end latency was approximately 329.702 ms, demonstrating prediction accuracy and the feasibility of online deployment.</p>",
           "tags": [
             "Real-time Traffic Forecasting",
             "Programmable PISA Data Plane",
@@ -47,7 +47,8 @@
             "width": 1800,
             "height": 557,
             "alt": "Overview of P4casting Architecture"
-          }
+          },
+          "codeUrl": "https://github.com/f1ybaozii/p4casting"
         },
         {
           "title": "AURORA: An Adaptive Load Balancing Mechanism via Data Plane Prediction at Line Rate",
@@ -208,7 +209,7 @@
           "date": "2026.03 – 2026.05",
           "venue": "IEEE HPCC 2026 (CCF-C, 录用) · 第二作者 & 通讯作者",
           "description": "通过数据平面分级轻重流管理和多维特征采集，协同控制平面融合跨频、跨变量注意力的双时间尺度深度学习模型，实现在线流量预测与突发检测。",
-          "detailsHtml": "<p><strong>背景与动机：</strong> 针对强突发、非平稳的加密网络流量短时预测精度低、延迟高的问题，提出数据-控制平面协同的双时间尺度在线流量预测系统 P4casting。</p> <p><strong>主要设计：</strong> 在数据平面上使用布隆过滤器、计数-最小草图和精确流表，实现分级的轻重流管理机制，从有状态/无状态和高频/低频两个维度采集多个流量特征。在控制平面设计双时间尺度深度学习模型，融合跨频注意力机制和跨变量注意力机制，实现高精度在线流量预测。</p> <p><strong>实验结果：</strong> 在 Intel Tofino 1 上部署 P4casting 原型，进行多个窗口配置的流量预测和突发检测任务评估，领先于多个时序预测 SOTA。系统稳态端到端时延约为 329.702 ms，验证了方案的预测精度与在线部署可行性。</p> <p><strong>项目仓库：</strong> <a href=\"https://github.com/f1ybaozii/p4casting\" target=\"_blank\" rel=\"noopener noreferrer\">github.com/f1ybaozii/p4casting</a></p>",
+          "detailsHtml": "<p><strong>背景与动机：</strong> 针对强突发、非平稳的加密网络流量短时预测精度低、延迟高的问题，提出数据-控制平面协同的双时间尺度在线流量预测系统 P4casting。</p> <p><strong>主要设计：</strong> 在数据平面上使用布隆过滤器、计数-最小草图和精确流表，实现分级的轻重流管理机制，从有状态/无状态和高频/低频两个维度采集多个流量特征。在控制平面设计双时间尺度深度学习模型，融合跨频注意力机制和跨变量注意力机制，实现高精度在线流量预测。</p> <p><strong>实验结果：</strong> 在 Intel Tofino 1 上部署 P4casting 原型，进行多个窗口配置的流量预测和突发检测任务评估，领先于多个时序预测 SOTA。系统稳态端到端时延约为 329.702 ms，验证了方案的预测精度与在线部署可行性。</p>",
           "tags": [
             "实时流量预测",
             "可编程 PISA 数据平面",
@@ -220,7 +221,8 @@
             "width": 1800,
             "height": 557,
             "alt": "P4casting 系统架构原图"
-          }
+          },
+          "codeUrl": "https://github.com/f1ybaozii/p4casting"
         },
         {
           "title": "AURORA：基于数据平面线速预测的自适应负载均衡机制",

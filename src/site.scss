@@ -53,7 +53,6 @@ button { font: inherit; }
 .paper-image-button { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 150px; padding: 10px; border: 1px solid #e5e9ee; border-radius: 5px; background: #fff; cursor: zoom-in; }
 .paper-box .paper-box-image img { display: block; width: 100%; height: auto; max-width: none; object-fit: contain; box-shadow: none; }
 .page__content .paper-image-button:hover img { box-shadow: none; }
-.paper-box-image figcaption { margin: 8px 0 0; font-family: inherit; font-size: 10px; color: #858c93; text-align: center; }
 body.figure-open { overflow: hidden; }
 .figure-dialog { max-width: min(94vw, 1440px); max-height: 92vh; padding: 40px 20px 16px; border: 0; border-radius: 8px; background: #fff; box-shadow: 0 12px 60px #0004; }
 .figure-dialog::backdrop { background: #000b; }
@@ -64,6 +63,8 @@ body.figure-open { overflow: hidden; }
 .paper-title { margin-top: 0; margin-bottom: 9px; font-size: 17px; line-height: 1.5; color: #224b8d; }
 .page__content .paper-title a { text-decoration: none; }
 .paper-venue { font-size: 14px; font-weight: 600; }
+.paper-links { margin: -4px 0 12px; font-size: 13px; }
+.paper-links a { display: inline-flex; align-items: center; gap: 5px; text-decoration: none; }
 .page__content .paper-box .entry-date { margin-bottom: 10px; }
 .project-entry { padding: 6px 0 20px; margin-bottom: 17px; border-bottom: 1px solid #efefef; }
 .project-entry:last-child { margin-bottom: 0; }
@@ -160,7 +161,6 @@ body.figure-open { overflow: hidden; }
   .paper-box { padding: 12px 0; }
   .paper-box--illustrated { grid-template-columns: minmax(0, 28%) minmax(0, 1fr); gap: 14px; }
   .paper-image-button { min-height: 0; }
-  .paper-box-image figcaption { display: none; }
   .topic-tags { display: none; }
   a, a:visited { color: #222; text-decoration: none !important; }
 }

@@ -28,7 +28,7 @@ const translations = {
     home: "Homepage", about: "About Me", education: "Educations", honors: "Honors and Awards",
     publications: "Publications", projects: "Open-source Projects", skills: "Skills", languages: "Languages",
     publicationGroups: { accepted: "Accepted", "under-review": "Under Review" },
-    details: "Research details", projectDetails: "Project details", print: "Print",
+    details: "Research details", projectDetails: "Project details", print: "Print", code: "Code",
     viewFigure: "Click to enlarge", closeFigure: "Close figure", figureDialog: "Paper figure",
     navigation: "Main navigation", menu: "Toggle navigation", language: "Language",
     email: "Email", skip: "Skip to content", top: "Back to top", source: "Source",
@@ -37,7 +37,7 @@ const translations = {
     home: "个人主页", about: "个人简介", education: "教育经历", honors: "获奖荣誉",
     publications: "论文经历", projects: "开源项目", skills: "技术技能", languages: "语言能力",
     publicationGroups: { accepted: "Accepted · 已录取", "under-review": "Under Review · 在投" },
-    details: "研究详情", projectDetails: "项目详情", print: "打印",
+    details: "研究详情", projectDetails: "项目详情", print: "打印", code: "代码",
     viewFigure: "点击放大配图", closeFigure: "关闭配图", figureDialog: "论文配图",
     navigation: "主要导航", menu: "展开或收起导航", language: "语言",
     email: "邮箱", skip: "跳转到正文", top: "返回顶部", source: "源码",
@@ -51,13 +51,13 @@ function publication(item, ui) {
     <button class="paper-image-button" type="button" data-figure aria-haspopup="dialog" aria-label="${escape(item.image.alt)} · ${escape(ui.viewFigure)}">
       <img src="${escape(item.image.src)}" alt="${escape(item.image.alt)}" width="${item.image.width}" height="${item.image.height}" loading="lazy" decoding="async">
     </button>
-    <figcaption>${escape(ui.viewFigure)}</figcaption>
   </figure>` : "";
   return `<article class="paper-box ${item.image ? "paper-box--illustrated" : "paper-box--text-only"}">
     ${figure}
     <div class="paper-box-text">
       <h4 class="paper-title">${item.url ? link(item.url, escape(item.title)) : escape(item.title)}</h4>
       <p class="paper-venue">${escape(item.venue)}</p>
+      ${item.codeUrl ? `<p class="paper-links">${link(item.codeUrl, `${icon("github")} ${escape(ui.code)}`, "repository-link")}</p>` : ""}
       ${item.description ? `<p>${escape(item.description)}</p>` : ""}
       ${tags(item.tags)}
       ${details(ui.details, item.detailsHtml)}
