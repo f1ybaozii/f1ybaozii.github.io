@@ -159,19 +159,6 @@
             "Html/CSS/JS"
           ],
           "summary": "A campus information hub with trending topics, agenda management, and a GPT-powered assistant."
-        },
-        {
-          "name": "NIS3356-SMT",
-          "title": "NIS3356-SMT: BERTopic-based Temporal Topic Popularity Analysis",
-          "url": "https://github.com/f1ybaozii/NIS3356-SMT",
-          "date": "2023.11 – 2024.01",
-          "description": "Built a Python crawler to collect trending topics from Weibo, Zhihu, and Toutiao (2022). Designed a BERTopic-based temporal analysis pipeline for 4-class topic clustering with per-time-slice heat scoring.",
-          "detailsHtml": "<p><strong>Project Scope:</strong></p> <ul><li>Developed a Python crawler to collect trending topics from Weibo, Zhihu, and Toutiao (Jan 1 – Dec 31, 2022), formatted as structured JSON data.</li> <li>Built a BERTopic-based temporal analysis pipeline: Word2Vec for tokenization, UMAP for dimensionality reduction, clustering for 4-class topic classification (Politics/Economics, Entertainment, Sports, Lifestyle), CountVectorizer and C-TF-IDF for keyword importance evaluation.</li> <li>Designed a time-slice based popularity heat algorithm and compared results across Weibo and Zhihu datasets.</li></ul> <p><strong>My Contributions:</strong></p> <ul><li>Designed the time-slice topic heat analysis algorithm: 4-class clustering per time slice, weighted heat computation, and temporal cycle analysis.</li> <li>Evaluated 8 embedding models and 3 clustering algorithms on the Toutiao dataset; selected optimal combination <strong>Mixed-large (89.02%)</strong> and <strong>HDBSCAN (86.28%)</strong>.</li> <li>Conducted cross-platform comparison on Weibo and Zhihu; authored reports and delivered the final presentation.</li></ul>",
-          "tags": [
-            "Python",
-            "BERTopic"
-          ],
-          "summary": "Temporal topic analysis across social platforms using BERTopic, clustering, and weighted heat scoring."
         }
       ],
       "languages": [
@@ -333,19 +320,6 @@
             "Html/CSS/JS"
           ],
           "summary": "聚合校内服务与全网热榜，集成日程管理、个性化搜索与 GPT 智能助手。"
-        },
-        {
-          "name": "NIS3356-SMT",
-          "title": "NIS3356-SMT：基于Bertopic的社交平台时序话题热度分析",
-          "url": "https://github.com/f1ybaozii/NIS3356-SMT",
-          "date": "2023.11 – 2024.01",
-          "description": "爬取微博、知乎、今日头条 2022 年度热榜数据，搭建基于 BERTopic 的时序分析流程，按时间片对话题四分类并计算加权热度。",
-          "detailsHtml": "<p><strong>项目内容：</strong></p> <ul><li>编写基于 Python 的爬虫爬取微博、知乎、今日头条网站 2022.1.1–2022.12.31 热榜，整理成 Json 数据格式。</li> <li>搭建基于 BERTopic 的时序话题热度分析算法流程框架：使用 Word2Vec 分词，UMAP 对高维数据降维，四分类聚类（政经、娱乐、运动、生活），使用 CountVectorizer 和 C-TF-IDF 评估词重要性；设计基于时间片的时序热度分析算法。</li> <li>将算法应用在微博和知乎数据集上进行热度结果比较并形成报告。</li></ul> <p><strong>工作内容：</strong></p> <ul><li>设计基于时间片的时序热度分析算法：按每个时间片对对应关键词四分类的话题聚类，确定话题归属并计算加权热度，分析热度高峰和低谷的时间特征周期。</li> <li>在今日头条数据集上比较 8 个嵌入模型、3 个聚类算法聚类准确度，选择最优模型 <strong>Mixed-large（89.02%）</strong> 和聚类算法 <strong>HDBSCAN（86.28%）</strong>。</li> <li>在微博和知乎测试集上进行话题热度分析，横向比较不同平台用户画像，纵向分析时序热度得到话题的时间周期特征。</li> <li>撰写部分需求分析和模块设计文档，完成 PPT 和最终课堂展示。</li></ul>",
-          "tags": [
-            "Python",
-            "BERTopic"
-          ],
-          "summary": "基于 BERTopic 的跨平台时序话题分析，结合话题聚类与加权热度探索时间规律。"
         }
       ],
       "languages": [
