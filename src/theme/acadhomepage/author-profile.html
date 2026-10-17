@@ -1,0 +1,20 @@
+<div class="profile_box" itemscope itemtype="https://schema.org/Person">
+  <div class="author__avatar">
+    <img src="{{ resume.photo }}" alt="{{ person.name | escape }}" width="175" height="175" itemprop="image" fetchpriority="high">
+  </div>
+  <div class="profile-details">
+    <div class="author__content">
+      <h2 class="author__name" itemprop="name">{{ person.name | escape }}<span class="author__alternate">{{ person.alternateName | escape }}</span></h2>
+      <p class="author__bio">{{ person.headline | escape }}</p>
+    </div>
+    <div class="author__urls-wrapper">
+      <ul class="author__urls social-icons">
+        {% if person.researchInterests.size > 0 %}<li class="research-interests">{{ person.researchInterests | join: ' · ' | escape }}</li>{% endif %}
+        <li>{{ icons.pin }}<span>{{ person.location | escape }}</span></li>
+        <li><a href="mailto:{{ resume.email }}" title="{{ displayEmail }}">{{ icons.mail }}<span>{{ ui.email }}</span></a></li>
+        <li><a href="{{ resume.github }}" target="_blank" rel="noopener noreferrer">{{ icons.github }}<span>GitHub</span></a></li>
+      </ul>
+      <p class="profile-email"><a href="mailto:{{ resume.email }}" itemprop="email">{{ displayEmail }}</a></p>
+    </div>
+  </div>
+</div>

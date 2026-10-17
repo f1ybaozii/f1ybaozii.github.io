@@ -1,0 +1,19 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<title>{{ title | escape }}</title>
+<meta name="description" content="{{ person.about | escape }}">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="{{ title | escape }}">
+<meta property="og:description" content="{{ person.headline | escape }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:image" content="{{ resume.website }}{{ resume.photo }}">
+<meta property="og:locale" content="{% if lang == 'zh' %}zh_CN{% else %}en_US{% endif %}">
+<link rel="canonical" href="{{ canonical }}">
+<link rel="alternate" hreflang="en" href="{{ resume.website }}">
+<link rel="alternate" hreflang="zh-CN" href="{{ resume.website }}zh.html">
+<link rel="alternate" hreflang="x-default" href="{{ resume.website }}">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/homepage.css">
+<script type="application/ld+json">{{ structuredData }}</script>

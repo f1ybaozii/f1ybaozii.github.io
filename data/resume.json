@@ -1,0 +1,359 @@
+{
+  "email": "wangchenkan@iie.ac.cn",
+  "github": "https://github.com/f1ybaozii",
+  "website": "https://f1ybaozii.github.io/",
+  "photo": "images/photo.jpg",
+  "locales": {
+    "en": {
+      "name": "Chenkan Wang",
+      "alternateName": "王晨侃",
+      "location": "Beijing, China",
+      "headline": "University of Chinese Academy of Sciences",
+      "about": "I received my B.E. in Information Security from Shanghai Jiao Tong University in 2025, and was recommended for admission to the University of Chinese Academy of Sciences, where I am currently pursuing a M.S. degree at the School of Cyberspace Security under the supervision of Mr. Yang Rong. My research interests lie in Intelligent Data Plane, in-network traffic classification and prediction, and network packet processing architectures.",
+      "education": [
+        {
+          "institution": "University of Chinese Academy of Sciences",
+          "description": "School of Cyberspace Security · pursuing M.S. in Network & Information Security · GPA: 3.90/4.0",
+          "date": "2025.09 – Present"
+        },
+        {
+          "institution": "Shanghai Jiao Tong University",
+          "description": "School of Computer Science · B.E. in Information Security · GPA: 3.56/4.30",
+          "date": "2021.09 – 2025.06"
+        }
+      ],
+      "honors": [
+        "Excellent Graduate of Shanghai Jiao Tong University (2025)",
+        "University Merit Scholarship (2021, 2023)",
+        "Academic Progress Scholarship (2023)",
+        "Outstanding League Member (2021, 2023, 2024)",
+        "MCM/ICM Honorable Mention (2023)"
+      ],
+      "publications": [
+        {
+          "title": "P4casting: Dual-Timescale Online Traffic Forecasting via Data–Control Plane Collaboration",
+          "date": "2026.03 – 2026.05",
+          "venue": "IEEE HPCC 2026 (CCF-C, Accepted) · Second Author & Corresponding Author",
+          "description": "A dual-timescale online traffic prediction system combining hierarchical heavy/light-flow management and multidimensional feature collection in the data plane with cross-frequency and cross-variable attention in a control-plane deep learning model.",
+          "detailsHtml": "<p><strong>Background &amp; Motivation:</strong> Highly bursty, non-stationary encrypted network traffic makes accurate short-term prediction difficult and introduces latency challenges. P4casting addresses this problem with a dual-timescale online prediction system built through data-control plane synergy.</p> <p><strong>Design:</strong> The data plane combines Bloom filters, Count-Min Sketch, and exact flow tables for hierarchical heavy/light-flow management. It collects features across stateful/stateless and high-frequency/low-frequency dimensions. The control plane uses a dual-timescale deep learning model integrating cross-frequency attention and cross-variable attention for accurate online traffic prediction.</p> <p><strong>Results:</strong> The P4casting prototype was deployed on Intel Tofino 1 and evaluated on traffic prediction and burst detection tasks under multiple window configurations, outperforming several state-of-the-art time-series forecasting methods. Steady-state end-to-end latency was approximately 329.702 ms, demonstrating prediction accuracy and the feasibility of online deployment.</p> <p><strong>Code:</strong> <a href=\"https://github.com/f1ybaozii/p4casting\" target=\"_blank\" rel=\"noopener noreferrer\">github.com/f1ybaozii/p4casting</a></p>",
+          "tags": [
+            "Real-time Traffic Forecasting",
+            "Programmable PISA Data Plane",
+            "Flow Management"
+          ],
+          "status": "accepted",
+          "image": {
+            "src": "assets/papers/p4casting-overview.webp",
+            "width": 1800,
+            "height": 557,
+            "alt": "Overview of P4casting Architecture"
+          }
+        },
+        {
+          "title": "AURORA: An Adaptive Load Balancing Mechanism via Data Plane Prediction at Line Rate",
+          "date": "2025.06 – 2025.07",
+          "venue": "IEEE ISCC 2026 (CCF-C, Accepted) · Third Author",
+          "description": "A prediction-driven load balancing mechanism implemented entirely in the P4 data plane, combining integer-approximated Holt smoothing, adaptive server weights, and stateless connection consistency to respond to burst traffic at line rate.",
+          "detailsHtml": "<p><strong>Background &amp; Motivation:</strong> Short-term bursts in data centers can cause delayed load balancing responses and server overload. AURORA uses traffic prediction on a P4 programmable data plane to provide adaptive scheduling at line rate without control-plane intervention.</p> <p><strong>Design:</strong> An integer approximation of Holt double-exponential smoothing predicts connection counts in the next time window. Traffic scaling coefficients dynamically adjust server weights, and probabilistic interval mapping distributes connections fairly. Server identifiers embedded in TCP timestamps preserve connection consistency in a stateless data plane, avoiding TCAM/SRAM flow-table overflow and supporting large numbers of concurrent connections.</p> <p><strong>Results:</strong> The prototype was deployed on Intel Tofino 1 in a single-leaf topology and evaluated with Poisson-arrival and Pareto-distributed traffic, including 10× and 20× burst windows. CPU utilization imbalance was reduced by 84.7%, flow completion time by 15.1%, and the TCP abnormal termination rate was 1.6%.</p>",
+          "tags": [
+            "Load Balancing",
+            "Programmable Switches",
+            "Traffic Prediction"
+          ],
+          "status": "accepted",
+          "image": {
+            "src": "assets/papers/aurora-overview.webp",
+            "width": 1800,
+            "height": 758,
+            "alt": "AURORA Design Overview"
+          }
+        },
+        {
+          "title": "AdaTable: Learning to Calibrate for Robust VNF Auto-scaling under Capacity Drift",
+          "venue": "ICIC 2026 (Accepted) · Third Author",
+          "status": "accepted",
+          "url": "https://link.springer.com/chapter/10.1007/978-981-92-3441-7_30",
+          "description": "A dual-plane VNF auto-scaling framework that learns capacity-table calibration to balance resource cost and SLA compliance under hidden capacity drift.",
+          "detailsHtml": "<p><strong>Motivation:</strong> Changing effective service capacity makes traffic-based scaling unreliable.</p> <p><strong>Design:</strong> A deterministic fast plane executes an anti-jitter capacity table; a DRL slow plane calibrates its parameters using adaptive penalties.</p> <p><strong>Results:</strong> Near the 5% SLA target, average active instances decrease by about 31% versus HPA, with SLA violations falling from 7.77% to 3.94%.</p>",
+          "tags": [
+            "Network Function Virtualization",
+            "VNF Auto-scaling",
+            "Constrained Reinforcement Learning"
+          ],
+          "image": {
+            "src": "assets/papers/adatable-overview.png",
+            "width": 1436,
+            "height": 812,
+            "alt": "AdaTable dual-plane capacity calibration and scaling architecture"
+          }
+        },
+        {
+          "title": "RecPipe: Top-Down Distillation of RNN Models for Data-Plane Traffic Classification",
+          "date": "2025.09 – 2026.09",
+          "venue": "USENIX NSDI 2027 (CCF-A, Under Review) · First Author",
+          "description": "A two-stage framework that distills per-flow RNN models into finite-state representations and deploys recurrent inference through lookup tables on programmable switches, making use of flow history within hardware resource budgets.",
+          "detailsHtml": "<p><strong>Background &amp; Motivation:</strong> Data-plane traffic classification faces difficulties in deploying neural models, model-structure constraints imposed by switch table resources, and inefficient use of flow history. RecPipe addresses these challenges with a two-stage RNN deployment method that converts recurrent inference into a finite-state representation.</p> <p><strong>Design:</strong> The offline stage first trains an RNN on a per-flow basis, then constructs discrete codebooks for hidden states and inputs, searches for an optimal finite-state machine within the hardware budget, and prunes deployment table entries. The online stage encodes per-packet features and performs multi-step state-transition inference through pipeline table lookups. Mirrored packets commit hidden states, enabling RNN inference across pipeline traversals.</p> <p><strong>Results:</strong> RecPipe was evaluated on Intel Tofino 1 using five public datasets. It achieved a Macro-F1 improvement of 2.25–7.30% on three datasets. In concurrent-flow-capacity experiments at 100 Gbps, classification performance remained stable as flow capacity increased and outperformed the comparison methods at the highest tested capacity.</p>",
+          "tags": [
+            "RNN",
+            "Finite-State Machines",
+            "Traffic Classification",
+            "Programmable Data Plane",
+            "Intel Tofino 1"
+          ],
+          "status": "under-review",
+          "image": {
+            "src": "assets/papers/recpipe-overview.webp",
+            "width": 615,
+            "height": 442,
+            "alt": "RecPipe architecture: offline model distillation and online model deployment"
+          }
+        },
+        {
+          "title": "Granulaxis: Evidence-Driven Granularity Refinement for Attack Mitigation in Programmable Networks",
+          "venue": "IEEE INFOCOM 2027 (CCF-A, Under Review) · Fifth Author",
+          "status": "under-review",
+          "description": "An evidence-driven switch–DPU–controller framework that chooses mitigation granularity online, balancing attack coverage, collateral damage, and limited rule capacity through temporary DPU statelets and budget-aware admission.",
+          "detailsHtml": "<p><strong>Background &amp; Motivation:</strong> Programmable switches can mitigate attacks at line rate, but finite table capacity creates a tradeoff: aggregate actions conserve rules while risking collateral damage, whereas selective child actions require more entries. Granulaxis decides when the available evidence justifies refinement.</p> <p><strong>Design:</strong> Coarse switch signals trigger short-lived evidence leases. During each lease, a DPU statelet summarizes the attack-relevant child structure of a suspicious traffic aggregate. The controller first chooses a single parent action or an adaptive heavy-child action for each object, then admits selected actions across objects under a shared rule budget. Enforcement continues while evidence is collected off the forwarding path.</p> <p><strong>Results:</strong> The prototype combines Intel Tofino and NVIDIA BlueField-3. On concentrated SYN and DNS workloads it removes over 99.9% of attack traffic, with no observed benign loss across five seeds. Under a 32-entry budget, it improves attack reduction by 7.0 percentage points and reduces benign loss by 3.3 percentage points relative to Evidence-First.</p>",
+          "tags": [
+            "Attack Mitigation",
+            "Data Processing Units (DPUs)",
+            "Mitigation Granularity",
+            "Programmable Switches",
+            "Resource Allocation"
+          ],
+          "image": {
+            "src": "assets/papers/granulaxis-overview.webp",
+            "width": 1220,
+            "height": 640,
+            "alt": "Granulaxis control loop"
+          }
+        }
+      ],
+      "projects": [
+        {
+          "name": "DLSec",
+          "title": "DLSec: An Evaluation System for Deep Learning Model Security",
+          "url": "https://github.com/f1ybaozii/DLSec-WebUI",
+          "date": "2023.04 – 2024.04",
+          "description": "University Student Innovation & Entrepreneurship Program. Built a full-stack platform for DL model security assessment, supporting adversarial attacks & defense, backdoor attacks, and data poisoning across text, image, and audio modalities with a Django-based visualization frontend.",
+          "detailsHtml": "<p><strong>Project Scope:</strong></p> <ul><li>Built from scratch a complete DL model security platform with PyTorch-based model training and mainstream attack &amp; defense methods (adversarial examples, backdoor attacks, data poisoning).</li> <li>Implemented multi-modal model modules (text, image, audio) with mainstream DL models and datasets.</li> <li>Developed an attack-defense based security evaluation system with a Django frontend (HTML+CSS+JS) and Python backend, generating visualized security assessment reports.</li> <li>Extended the project to Internet+ Innovation &amp; Entrepreneurship Competition, National Cybersecurity Works Competition; filed a patent.</li></ul> <p><strong>My Contributions:</strong></p> <ul><li>Deeply studied, reproduced, and extended the <strong>ANP</strong> backdoor defense algorithm; rewrote training and defense code modules.</li> <li>Led the frontend implementation of project overview, evaluation parameter configuration, and result visualization; integrated frontend with backend.</li> <li>Conducted security testing on selected models; authored the ANP algorithm reproduction and extension report.</li></ul>",
+          "tags": [
+            "Python",
+            "PyTorch",
+            "Django",
+            "Html/CSS/JS"
+          ],
+          "summary": "A multimodal deep learning security platform for adversarial attacks, backdoor defense, and visual evaluation."
+        },
+        {
+          "name": "SJTUhelper",
+          "title": "SJTUhelper: One-Stop Learning & Surfing Assistant",
+          "url": "https://github.com/f1ybaozii/SJTUhelper",
+          "date": "2023.09 – 2023.11",
+          "description": "A Django-based aggregator collecting trending topics from Zhihu, Bilibili, GitHub, Weibo and campus services (Canvas, SJTU portals) with unified account management. Integrated GPT-powered multi-keyword search and customizable prompt-based Q&A.",
+          "detailsHtml": "<p><strong>Project Scope:</strong></p> <ul><li>Built a Django web crawler aggregating real-time trending topics from external platforms (Zhihu, Bilibili, GitHub, Weibo) and campus services (forum, Canvas, second classroom, SEIEE portal) with unified account management.</li> <li>Implemented GPT-powered multi-keyword filtering, associative search, and customizable in-site prompt-based assistant.</li> <li>Integrated agenda management synced with the campus app, plus weather, focus mode, topic bookmarking, and user auth.</li></ul> <p><strong>My Contributions:</strong></p> <ul><li>Designed and built the landing page, menu sidebar, focus mode, user registration/login, and agenda management frontend.</li> <li>Integrated frontend with backend APIs and consolidated codebase.</li> <li>Co-authored requirement analysis and module design documents.</li></ul>",
+          "tags": [
+            "Python",
+            "Django",
+            "Html/CSS/JS"
+          ],
+          "summary": "A campus information hub with trending topics, agenda management, and a GPT-powered assistant."
+        },
+        {
+          "name": "NIS3356-SMT",
+          "title": "NIS3356-SMT: BERTopic-based Temporal Topic Popularity Analysis",
+          "url": "https://github.com/f1ybaozii/NIS3356-SMT",
+          "date": "2023.11 – 2024.01",
+          "description": "Built a Python crawler to collect trending topics from Weibo, Zhihu, and Toutiao (2022). Designed a BERTopic-based temporal analysis pipeline for 4-class topic clustering with per-time-slice heat scoring.",
+          "detailsHtml": "<p><strong>Project Scope:</strong></p> <ul><li>Developed a Python crawler to collect trending topics from Weibo, Zhihu, and Toutiao (Jan 1 – Dec 31, 2022), formatted as structured JSON data.</li> <li>Built a BERTopic-based temporal analysis pipeline: Word2Vec for tokenization, UMAP for dimensionality reduction, clustering for 4-class topic classification (Politics/Economics, Entertainment, Sports, Lifestyle), CountVectorizer and C-TF-IDF for keyword importance evaluation.</li> <li>Designed a time-slice based popularity heat algorithm and compared results across Weibo and Zhihu datasets.</li></ul> <p><strong>My Contributions:</strong></p> <ul><li>Designed the time-slice topic heat analysis algorithm: 4-class clustering per time slice, weighted heat computation, and temporal cycle analysis.</li> <li>Evaluated 8 embedding models and 3 clustering algorithms on the Toutiao dataset; selected optimal combination <strong>Mixed-large (89.02%)</strong> and <strong>HDBSCAN (86.28%)</strong>.</li> <li>Conducted cross-platform comparison on Weibo and Zhihu; authored reports and delivered the final presentation.</li></ul>",
+          "tags": [
+            "Python",
+            "BERTopic"
+          ],
+          "summary": "Temporal topic analysis across social platforms using BERTopic, clustering, and weighted heat scoring."
+        }
+      ],
+      "languages": [
+        "English — CET-4: 556 · CET-6: 567 · IELTS: 6.5"
+      ]
+    },
+    "zh": {
+      "name": "王晨侃",
+      "alternateName": "Chenkan Wang",
+      "location": "中国，北京",
+      "headline": "中国科学院大学",
+      "about": "我于2025年获得上海交通大学信息安全本科学位，推免至中国科学院大学，目前是网络空间安全学院的一名研究生在读，导师为杨嵘老师。我目前的研究方向在于智能数据平面，网内的流量分类与流量预测，网络包处理架构等。",
+      "education": [
+        {
+          "institution": "中国科学院大学",
+          "description": "网络空间安全学院 · 网络与信息安全硕士（在读） · GPA: 3.90/4.0",
+          "date": "2025.09 – 至今"
+        },
+        {
+          "institution": "上海交通大学",
+          "description": "计算机学院 · 信息安全本科 · GPA: 3.56/4.30",
+          "date": "2021.09 – 2025.06"
+        }
+      ],
+      "honors": [
+        "上海交通大学优秀毕业生（2025）",
+        "校级优秀奖学金（2021、2023）",
+        "学业进步奖学金（2023）",
+        "优秀共青团员（2021、2023、2024）",
+        "美国大学生数学建模竞赛 H奖（2023）"
+      ],
+      "publications": [
+        {
+          "title": "P4casting：数据与控制平面协同的双时间尺度在线流量预测",
+          "date": "2026.03 – 2026.05",
+          "venue": "IEEE HPCC 2026 (CCF-C, 录用) · 第二作者 & 通讯作者",
+          "description": "通过数据平面分级轻重流管理和多维特征采集，协同控制平面融合跨频、跨变量注意力的双时间尺度深度学习模型，实现在线流量预测与突发检测。",
+          "detailsHtml": "<p><strong>背景与动机：</strong> 针对强突发、非平稳的加密网络流量短时预测精度低、延迟高的问题，提出数据-控制平面协同的双时间尺度在线流量预测系统 P4casting。</p> <p><strong>主要设计：</strong> 在数据平面上使用布隆过滤器、计数-最小草图和精确流表，实现分级的轻重流管理机制，从有状态/无状态和高频/低频两个维度采集多个流量特征。在控制平面设计双时间尺度深度学习模型，融合跨频注意力机制和跨变量注意力机制，实现高精度在线流量预测。</p> <p><strong>实验结果：</strong> 在 Intel Tofino 1 上部署 P4casting 原型，进行多个窗口配置的流量预测和突发检测任务评估，领先于多个时序预测 SOTA。系统稳态端到端时延约为 329.702 ms，验证了方案的预测精度与在线部署可行性。</p> <p><strong>项目仓库：</strong> <a href=\"https://github.com/f1ybaozii/p4casting\" target=\"_blank\" rel=\"noopener noreferrer\">github.com/f1ybaozii/p4casting</a></p>",
+          "tags": [
+            "实时流量预测",
+            "可编程 PISA 数据平面",
+            "流管理"
+          ],
+          "status": "accepted",
+          "image": {
+            "src": "assets/papers/p4casting-overview.webp",
+            "width": 1800,
+            "height": 557,
+            "alt": "P4casting 系统架构原图"
+          }
+        },
+        {
+          "title": "AURORA：基于数据平面线速预测的自适应负载均衡机制",
+          "date": "2025.06 – 2025.07",
+          "venue": "IEEE ISCC 2026 (CCF-C, 录用) · 第三作者",
+          "description": "在 P4 数据平面内以整数近似实现霍尔特双参数预测，结合动态服务器权重和无状态连接一致性机制，实现面向突发流量的线速自适应负载均衡。",
+          "detailsHtml": "<p><strong>背景与动机：</strong> 针对数据中心短时突发流量下负载均衡响应滞后、服务器过载的问题，提出基于 P4 可编程数据平面的预测驱动负载均衡机制 AURORA，无需控制面干预即可实现线速自适应调度。</p> <p><strong>主要设计：</strong> 在数据平面内整数近似实现霍尔特双参数时序预测模型，实时预测下一时间窗口的连接数，并设计流量缩放系数动态调整服务器权重，结合概率区间映射完成公平分发。通过 TCP 时间戳字段嵌入服务器标识，在无状态数据平面中保证连接一致性，避免 TCAM/SRAM 流表溢出，支持大规模并发连接。</p> <p><strong>实验结果：</strong> 在 Intel Tofino 1 及单层树拓扑上完成原型部署，使用泊松到达和帕累托分布流量（10 倍、20 倍突发窗口）进行验证。CPU 利用率不平衡度降低 84.7%，流完成时间降低 15.1%，TCP 异常中断率仅 1.6%。</p>",
+          "tags": [
+            "负载均衡",
+            "可编程交换机",
+            "流量预测"
+          ],
+          "status": "accepted",
+          "image": {
+            "src": "assets/papers/aurora-overview.webp",
+            "width": 1800,
+            "height": 758,
+            "alt": "AURORA 设计总览原图"
+          }
+        },
+        {
+          "title": "AdaTable：容量漂移下鲁棒 VNF 自动扩缩容的学习式校准",
+          "venue": "ICIC 2026 (录用) · 第三作者",
+          "status": "accepted",
+          "url": "https://link.springer.com/chapter/10.1007/978-981-92-3441-7_30",
+          "description": "通过快慢双平面容量表校准，在服务能力漂移下平衡 VNF 扩缩容成本与 SLA。",
+          "detailsHtml": "<p><strong>研究设计：</strong> 快速平面以抗抖容量表执行扩缩容，DRL 慢速平面校准参数并自适应调整惩罚。</p> <p><strong>实验结果：</strong> 在接近 5% SLA 目标的评测点，相对 HPA 平均活跃实例减少约 31%，SLA 违规率由 7.77% 降至 3.94%。</p>",
+          "tags": [
+            "网络功能虚拟化",
+            "VNF 自动扩缩容",
+            "约束强化学习"
+          ],
+          "image": {
+            "src": "assets/papers/adatable-overview.png",
+            "width": 1436,
+            "height": 812,
+            "alt": "AdaTable 双平面容量校准与扩缩容架构"
+          }
+        },
+        {
+          "title": "RecPipe：面向数据平面流量分类的 RNN 模型自上而下蒸馏",
+          "date": "2025.09 – 2026.09",
+          "venue": "USENIX NSDI 2027 (CCF-A, 在投) · 第一作者",
+          "description": "通过离线蒸馏与在线部署两阶段，将按流训练的 RNN 转换为硬件预算内的有限状态表示，并通过交换机流水线查表与隐藏状态提交实现利用流历史信息的流量分类。",
+          "detailsHtml": "<p><strong>背景与动机：</strong> 针对数据平面流量分类中神经网络模型部署困难、模型结构受到交换机表项资源限制，以及无法高效利用流历史信息的问题，提出两阶段循环神经网络部署方法 RecPipe，将 RNN 推理过程转换为有限状态表示。</p> <p><strong>主要设计：</strong> RecPipe 包含离线蒸馏和在线部署两个阶段。离线阶段首先按流训练 RNN，随后分别构建隐藏状态和输入的离散码本，在硬件预算内搜索最优有限状态机，并通过多种剪枝手段减少部署表项。在线阶段对每包特征进行编码，通过流水线中的查表操作完成多步状态转移推理，再利用镜像包提交隐藏状态，实现跨流水线 RNN 推理。</p> <p><strong>实验结果：</strong> 在 Intel Tofino 1 和五个公开数据集上评估 RecPipe，在其中三个数据集上的 Macro-F1 领先 2.25–7.30%。在 100 Gbps 并发容量实验中，随着流容量增加，RecPipe 的分类效果保持稳定，并在最高容量下优于其他方法。</p>",
+          "tags": [
+            "RNN",
+            "有限状态机",
+            "流量分类",
+            "可编程数据平面",
+            "Intel Tofino 1"
+          ],
+          "status": "under-review",
+          "image": {
+            "src": "assets/papers/recpipe-overview.webp",
+            "width": 615,
+            "height": 442,
+            "alt": "RecPipe 离线模型蒸馏与在线模型部署架构原图"
+          }
+        },
+        {
+          "title": "Granulaxis：面向可编程网络攻击缓解的证据驱动粒度细化",
+          "venue": "IEEE INFOCOM 2027 (CCF-A, 在投) · 第五作者",
+          "status": "under-review",
+          "description": "通过可编程交换机、DPU 与控制器协同，按需采集攻击结构证据，在线选择攻击缓解粒度，并在共享规则预算下平衡攻击覆盖、正常流量误伤与表项开销。",
+          "detailsHtml": "<p><strong>背景与动机：</strong> 可编程交换机能够执行线速攻击缓解，但有限表项使粗粒度与细粒度动作之间存在权衡：聚合动作节省规则却可能误伤正常流量，选择性子对象动作则消耗更多表项。Granulaxis 根据证据判断何时值得细化缓解粒度。</p> <p><strong>主要设计：</strong> 交换机粗粒度信号触发短期证据租约，由 DPU statelet 汇总可疑聚合对象中与攻击相关的子对象结构。控制器先为每个对象选择单条父对象规则或自适应重子对象规则，再在共享规则预算下进行跨对象准入。证据采集位于转发路径之外，采集期间已有缓解动作持续生效。</p> <p><strong>实验结果：</strong> 在 Intel Tofino 与 NVIDIA BlueField-3 上实现原型。针对集中式 SYN 和 DNS 攻击负载，五个随机种子下均移除超过 99.9% 的攻击流量，且未观察到正常流量损失。在 32 条表项预算下，相对 Evidence-First，攻击削减率提高 7.0 个百分点，正常流量损失降低 3.3 个百分点。</p>",
+          "tags": [
+            "攻击缓解",
+            "数据处理单元（DPU）",
+            "缓解粒度",
+            "可编程交换机",
+            "资源分配"
+          ],
+          "image": {
+            "src": "assets/papers/granulaxis-overview.webp",
+            "width": 1220,
+            "height": 640,
+            "alt": "Granulaxis 控制闭环原图"
+          }
+        }
+      ],
+      "projects": [
+        {
+          "name": "DLSec",
+          "title": "DLSec：面向深度学习模型内生安全的评估系统",
+          "url": "https://github.com/f1ybaozii/DLSec-WebUI",
+          "date": "2023.04 – 2024.04",
+          "description": "从零搭建深度学习模型安全平台，支持对抗样本、后门攻击、数据投毒等多种攻防方法，覆盖文本、图像、音频多模态模型，构建基于 Django 的可视化评估系统。",
+          "detailsHtml": "<p><strong>项目内容：</strong></p> <ul><li>从零搭建完整的深度学习模型安全平台，实现基于 PyTorch 框架的模型训练过程，及针对模型的主流攻击与防御方法（包括对抗样本、后门攻击和数据投毒等）。</li> <li>实现多种模态模型（文本、图像和音频）的模块搭建，提供主流任务的深度学习模型和数据集。</li> <li>构建基于攻防的模型安全评估体系，搭建基于 Django 的全栈展示平台（前端 Html+CSS+JavaScript，后端 Python），生成可视化安全评估报告。</li> <li>衍生项目参与互联网+创新创业比赛、全国大学生信息安全作品赛等，发表专利一项。</li></ul> <p><strong>工作内容：</strong></p> <ul><li>针对后门防御进行深入学习；深度研究、复现和拓展 <strong>ANP</strong> 后门防御算法，重写训练与防御相关代码并入后门防御模块。</li> <li>作为主要完成人实现项目展示平台中项目简述、评测参数设定、评测结果等前端展示，完成前后端功能合并和代码整理工作。</li> <li>完成部分模型的安全测试，参与完成需求报告、模块设计报告、项目论文和专利报告的撰写；个人撰写 ANP 算法复现与拓展报告。</li></ul>",
+          "tags": [
+            "Python",
+            "PyTorch",
+            "Django",
+            "Html/CSS/JS"
+          ],
+          "summary": "面向文本、图像与音频模型的安全评估平台，集成对抗攻防、后门防御与可视化评测。"
+        },
+        {
+          "name": "SJTUhelper",
+          "title": "SJTUhelper：一站式学习冲浪小助手",
+          "url": "https://github.com/f1ybaozii/SJTUhelper",
+          "date": "2023.09 – 2023.11",
+          "description": "基于 Django 的聚合平台，收集知乎、Bilibili、GitHub、微博热榜及校内服务信息，集成 GPT 多关键词筛选与智能对话助手。",
+          "detailsHtml": "<p><strong>项目内容：</strong></p> <ul><li>使用爬虫搭建基于 Django 的网站，实现对校外网站（知乎、Bilibili、Github、微博）热榜和校内网站（社区论坛、Canvas、第二课堂、电院官网）的信息搜集与实时更新，并实现一站式账号管理。</li> <li>提供基于 GPT 的多关键词筛选、联想和个性化搜索，实现站内免切换、可修改 prompt 的 GPT 助手对话。</li> <li>通过站内日程管理界面同步实现校内 APP 日程管理；提供用户登录与注册、实时天气、专注模式、话题收藏等功能。</li></ul> <p><strong>工作内容：</strong></p> <ul><li>完成网站首页介绍页、菜单页的侧边栏、专注模式、用户注册与登录、日程管理页面的前端设计与搭建。</li> <li>与后端应用对齐接口整合代码。</li> <li>撰写部分需求分析和模块设计报告。</li></ul>",
+          "tags": [
+            "Python",
+            "Django",
+            "Html/CSS/JS"
+          ],
+          "summary": "聚合校内服务与全网热榜，集成日程管理、个性化搜索与 GPT 智能助手。"
+        },
+        {
+          "name": "NIS3356-SMT",
+          "title": "NIS3356-SMT：基于Bertopic的社交平台时序话题热度分析",
+          "url": "https://github.com/f1ybaozii/NIS3356-SMT",
+          "date": "2023.11 – 2024.01",
+          "description": "爬取微博、知乎、今日头条 2022 年度热榜数据，搭建基于 BERTopic 的时序分析流程，按时间片对话题四分类并计算加权热度。",
+          "detailsHtml": "<p><strong>项目内容：</strong></p> <ul><li>编写基于 Python 的爬虫爬取微博、知乎、今日头条网站 2022.1.1–2022.12.31 热榜，整理成 Json 数据格式。</li> <li>搭建基于 BERTopic 的时序话题热度分析算法流程框架：使用 Word2Vec 分词，UMAP 对高维数据降维，四分类聚类（政经、娱乐、运动、生活），使用 CountVectorizer 和 C-TF-IDF 评估词重要性；设计基于时间片的时序热度分析算法。</li> <li>将算法应用在微博和知乎数据集上进行热度结果比较并形成报告。</li></ul> <p><strong>工作内容：</strong></p> <ul><li>设计基于时间片的时序热度分析算法：按每个时间片对对应关键词四分类的话题聚类，确定话题归属并计算加权热度，分析热度高峰和低谷的时间特征周期。</li> <li>在今日头条数据集上比较 8 个嵌入模型、3 个聚类算法聚类准确度，选择最优模型 <strong>Mixed-large（89.02%）</strong> 和聚类算法 <strong>HDBSCAN（86.28%）</strong>。</li> <li>在微博和知乎测试集上进行话题热度分析，横向比较不同平台用户画像，纵向分析时序热度得到话题的时间周期特征。</li> <li>撰写部分需求分析和模块设计文档，完成 PPT 和最终课堂展示。</li></ul>",
+          "tags": [
+            "Python",
+            "BERTopic"
+          ],
+          "summary": "基于 BERTopic 的跨平台时序话题分析，结合话题聚类与加权热度探索时间规律。"
+        }
+      ],
+      "languages": [
+        "英语 — CET-4: 556 · CET-6: 567 · IELTS: 6.5"
+      ]
+    }
+  },
+  "skills": [
+    "C/C++",
+    "Python",
+    "P4"
+  ]
+}

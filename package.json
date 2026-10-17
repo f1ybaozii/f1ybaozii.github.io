@@ -1,0 +1,17 @@
+{
+  "name": "chenkan-wang-homepage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bilingual academic homepage using the AcadHomepage template",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/preview.mjs"
+  },
+  "engines": {
+    "node": ">=20.19"
+  },
+  "devDependencies": {
+    "liquidjs": "^10.30.0",
+    "sass": "^1.105.2"
+  }
+}

@@ -1,0 +1,26 @@
+<!doctype html>
+<!-- Generated from data/resume.json using the AcadHomepage layout. -->
+<html lang="{{ htmlLang }}">
+  <head>{% include 'head.html' %}</head>
+  <body id="top">
+    <a class="skip-link" href="#main-content">{{ ui.skip }}</a>
+    {% include 'masthead.html' %}
+    <div id="main">
+      <aside class="sidebar" aria-label="{{ person.name | escape }}">
+        {% include 'author-profile.html' %}
+      </aside>
+      <main class="page" id="main-content" tabindex="-1">
+        <div class="page__inner-wrap">
+          <div class="page__content">{{ content }}</div>
+        </div>
+      </main>
+    </div>
+    {% include 'footer.html' %}
+    <dialog class="figure-dialog" data-figure-dialog aria-label="{{ ui.figureDialog }}">
+      <button class="figure-close" type="button" data-figure-close aria-label="{{ ui.closeFigure }}">×</button>
+      <img data-figure-image alt="">
+      <p class="figure-caption" data-figure-caption></p>
+    </dialog>
+    <script src="assets/homepage.js" defer></script>
+  </body>
+</html>

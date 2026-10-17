@@ -1,0 +1,23 @@
+<header class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="{{ ui.navigation }}">
+        <a class="home-link" href="#about-me">{{ ui.home }}</a>
+        <ul class="visible-links" id="navigation-links">
+          {% for item in navigation %}
+          <li class="masthead__menu-item"><a href="#{{ item.id }}">{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+        <div class="site-actions">
+          <div class="language-switch" role="group" aria-label="{{ ui.language }}">
+            <a href="index.html" lang="en" hreflang="en" {% if lang == 'en' %}aria-current="page"{% endif %}>EN</a>
+            <span aria-hidden="true">/</span>
+            <a href="zh.html" lang="zh-CN" hreflang="zh-CN" {% if lang == 'zh' %}aria-current="page"{% endif %}>中文</a>
+          </div>
+          <button type="button" class="print-button" data-print hidden aria-label="{{ ui.print }}" title="{{ ui.print }}">{{ icons.print }}</button>
+          <button type="button" class="menu-toggle" data-menu-toggle hidden aria-controls="navigation-links" aria-expanded="false" aria-label="{{ ui.menu }}">{{ icons.menu }}</button>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
