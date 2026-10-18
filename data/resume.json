@@ -71,7 +71,7 @@
         },
         {
           "title": "AdaTable: Learning to Calibrate for Robust VNF Auto-scaling under Capacity Drift",
-          "venue": "ICIC 2026 (Accepted) · Third Author",
+          "venue": "ICIC 2026 (CCF-C, Accepted) · Third Author",
           "status": "accepted",
           "url": "https://link.springer.com/chapter/10.1007/978-981-92-3441-7_30",
           "description": "A dual-plane VNF auto-scaling framework that learns capacity-table calibration to balance resource cost and SLA compliance under hidden capacity drift.",
@@ -232,7 +232,7 @@
         },
         {
           "title": "AdaTable：容量漂移下鲁棒 VNF 自动扩缩容的学习式校准",
-          "venue": "ICIC 2026 (录用) · 第三作者",
+          "venue": "ICIC 2026 (CCF-C, 录用) · 第三作者",
           "status": "accepted",
           "url": "https://link.springer.com/chapter/10.1007/978-981-92-3441-7_30",
           "description": "通过快慢双平面容量表校准，在服务能力漂移下平衡 VNF 扩缩容成本与 SLA。",
